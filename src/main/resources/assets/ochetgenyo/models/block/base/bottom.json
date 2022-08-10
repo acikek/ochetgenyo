@@ -1,0 +1,6 @@
+{
+  "parent": "ochetgenyo:block/base/template",
+  "textures": {
+    "front": "ochetgenyo:block/base/bottom"
+  }
+}

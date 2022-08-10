@@ -28,3 +28,6 @@ workspace/
 
 # macOS
 *.DS_Store
+
+# Datagen
+__pycache__

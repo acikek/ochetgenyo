@@ -1,0 +1,244 @@
+{
+  "variants": {
+    "facing=east,connection=none,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left_attached",
+      "y": 90
+    },
+    "facing=east,connection=none,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right_attached",
+      "y": 90
+    },
+    "facing=east,connection=none,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left",
+      "y": 90
+    },
+    "facing=east,connection=none,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right",
+      "y": 90
+    },
+    "facing=east,connection=top,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left_attached",
+      "y": 90
+    },
+    "facing=east,connection=top,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right_attached",
+      "y": 90
+    },
+    "facing=east,connection=top,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left",
+      "y": 90
+    },
+    "facing=east,connection=top,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right",
+      "y": 90
+    },
+    "facing=east,connection=bottom,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left_attached",
+      "y": 90
+    },
+    "facing=east,connection=bottom,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right_attached",
+      "y": 90
+    },
+    "facing=east,connection=bottom,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left",
+      "y": 90
+    },
+    "facing=east,connection=bottom,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right",
+      "y": 90
+    },
+    "facing=east,connection=both,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left_attached",
+      "y": 90
+    },
+    "facing=east,connection=both,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right_attached",
+      "y": 90
+    },
+    "facing=east,connection=both,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left",
+      "y": 90
+    },
+    "facing=east,connection=both,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right",
+      "y": 90
+    },
+    "facing=north,connection=none,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left_attached"
+    },
+    "facing=north,connection=none,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right_attached"
+    },
+    "facing=north,connection=none,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left"
+    },
+    "facing=north,connection=none,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right"
+    },
+    "facing=north,connection=top,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left_attached"
+    },
+    "facing=north,connection=top,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right_attached"
+    },
+    "facing=north,connection=top,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left"
+    },
+    "facing=north,connection=top,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right"
+    },
+    "facing=north,connection=bottom,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left_attached"
+    },
+    "facing=north,connection=bottom,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right_attached"
+    },
+    "facing=north,connection=bottom,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left"
+    },
+    "facing=north,connection=bottom,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right"
+    },
+    "facing=north,connection=both,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left_attached"
+    },
+    "facing=north,connection=both,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right_attached"
+    },
+    "facing=north,connection=both,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left"
+    },
+    "facing=north,connection=both,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right"
+    },
+    "facing=south,connection=none,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left_attached",
+      "y": 180
+    },
+    "facing=south,connection=none,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right_attached",
+      "y": 180
+    },
+    "facing=south,connection=none,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left",
+      "y": 180
+    },
+    "facing=south,connection=none,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right",
+      "y": 180
+    },
+    "facing=south,connection=top,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left_attached",
+      "y": 180
+    },
+    "facing=south,connection=top,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right_attached",
+      "y": 180
+    },
+    "facing=south,connection=top,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left",
+      "y": 180
+    },
+    "facing=south,connection=top,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right",
+      "y": 180
+    },
+    "facing=south,connection=bottom,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left_attached",
+      "y": 180
+    },
+    "facing=south,connection=bottom,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right_attached",
+      "y": 180
+    },
+    "facing=south,connection=bottom,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left",
+      "y": 180
+    },
+    "facing=south,connection=bottom,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right",
+      "y": 180
+    },
+    "facing=south,connection=both,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left_attached",
+      "y": 180
+    },
+    "facing=south,connection=both,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right_attached",
+      "y": 180
+    },
+    "facing=south,connection=both,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left",
+      "y": 180
+    },
+    "facing=south,connection=both,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right",
+      "y": 180
+    },
+    "facing=west,connection=none,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left_attached",
+      "y": 270
+    },
+    "facing=west,connection=none,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right_attached",
+      "y": 270
+    },
+    "facing=west,connection=none,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/left",
+      "y": 270
+    },
+    "facing=west,connection=none,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/none/right",
+      "y": 270
+    },
+    "facing=west,connection=top,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left_attached",
+      "y": 270
+    },
+    "facing=west,connection=top,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right_attached",
+      "y": 270
+    },
+    "facing=west,connection=top,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/left",
+      "y": 270
+    },
+    "facing=west,connection=top,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/top/right",
+      "y": 270
+    },
+    "facing=west,connection=bottom,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left_attached",
+      "y": 270
+    },
+    "facing=west,connection=bottom,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right_attached",
+      "y": 270
+    },
+    "facing=west,connection=bottom,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/left",
+      "y": 270
+    },
+    "facing=west,connection=bottom,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/bottom/right",
+      "y": 270
+    },
+    "facing=west,connection=both,orientation=left,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left_attached",
+      "y": 270
+    },
+    "facing=west,connection=both,orientation=right,attached=true": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right_attached",
+      "y": 270
+    },
+    "facing=west,connection=both,orientation=left,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/left",
+      "y": 270
+    },
+    "facing=west,connection=both,orientation=right,attached=false": {
+      "model": "ochetgenyo:block/glyph/vowel/o/both/right",
+      "y": 270
+    }
+  }
+}

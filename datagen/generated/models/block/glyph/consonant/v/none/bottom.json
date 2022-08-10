@@ -1,0 +1,7 @@
+{
+  "parent": "ochetgenyo:block/glyph/template",
+  "textures": {
+    "front": "ochetgenyo:block/base/bottom",
+    "overlay": "ochetgenyo:block/glyph/consonant/v_none"
+  }
+}

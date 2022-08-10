@@ -1,0 +1,244 @@
+{
+  "variants": {
+    "facing=east,connection=none,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/none",
+      "y": 90
+    },
+    "facing=east,connection=top,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/top",
+      "y": 90
+    },
+    "facing=east,connection=bottom,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/bottom",
+      "y": 90
+    },
+    "facing=east,connection=both,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/both",
+      "y": 90
+    },
+    "facing=east,connection=none,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 90
+    },
+    "facing=east,connection=top,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/top",
+      "y": 90
+    },
+    "facing=east,connection=bottom,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 90
+    },
+    "facing=east,connection=both,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 90
+    },
+    "facing=east,connection=none,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 90
+    },
+    "facing=east,connection=top,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 90
+    },
+    "facing=east,connection=bottom,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/bottom",
+      "y": 90
+    },
+    "facing=east,connection=both,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 90
+    },
+    "facing=east,connection=none,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 90
+    },
+    "facing=east,connection=top,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 90
+    },
+    "facing=east,connection=bottom,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 90
+    },
+    "facing=east,connection=both,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 90
+    },
+    "facing=north,connection=none,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/none"
+    },
+    "facing=north,connection=top,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/top"
+    },
+    "facing=north,connection=bottom,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/bottom"
+    },
+    "facing=north,connection=both,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/both"
+    },
+    "facing=north,connection=none,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both"
+    },
+    "facing=north,connection=top,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/top"
+    },
+    "facing=north,connection=bottom,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both"
+    },
+    "facing=north,connection=both,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both"
+    },
+    "facing=north,connection=none,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both"
+    },
+    "facing=north,connection=top,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both"
+    },
+    "facing=north,connection=bottom,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/bottom"
+    },
+    "facing=north,connection=both,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both"
+    },
+    "facing=north,connection=none,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both"
+    },
+    "facing=north,connection=top,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both"
+    },
+    "facing=north,connection=bottom,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both"
+    },
+    "facing=north,connection=both,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both"
+    },
+    "facing=south,connection=none,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/none",
+      "y": 180
+    },
+    "facing=south,connection=top,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/top",
+      "y": 180
+    },
+    "facing=south,connection=bottom,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/bottom",
+      "y": 180
+    },
+    "facing=south,connection=both,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/both",
+      "y": 180
+    },
+    "facing=south,connection=none,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 180
+    },
+    "facing=south,connection=top,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/top",
+      "y": 180
+    },
+    "facing=south,connection=bottom,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 180
+    },
+    "facing=south,connection=both,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 180
+    },
+    "facing=south,connection=none,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 180
+    },
+    "facing=south,connection=top,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 180
+    },
+    "facing=south,connection=bottom,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/bottom",
+      "y": 180
+    },
+    "facing=south,connection=both,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 180
+    },
+    "facing=south,connection=none,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 180
+    },
+    "facing=south,connection=top,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 180
+    },
+    "facing=south,connection=bottom,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 180
+    },
+    "facing=south,connection=both,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 180
+    },
+    "facing=west,connection=none,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/none",
+      "y": 270
+    },
+    "facing=west,connection=top,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/top",
+      "y": 270
+    },
+    "facing=west,connection=bottom,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/bottom",
+      "y": 270
+    },
+    "facing=west,connection=both,form=none": {
+      "model": "ochetgenyo:block/glyph/consonant/n/none/both",
+      "y": 270
+    },
+    "facing=west,connection=none,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 270
+    },
+    "facing=west,connection=top,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/top",
+      "y": 270
+    },
+    "facing=west,connection=bottom,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 270
+    },
+    "facing=west,connection=both,form=top": {
+      "model": "ochetgenyo:block/glyph/consonant/n/top/both",
+      "y": 270
+    },
+    "facing=west,connection=none,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 270
+    },
+    "facing=west,connection=top,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 270
+    },
+    "facing=west,connection=bottom,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/bottom",
+      "y": 270
+    },
+    "facing=west,connection=both,form=bottom": {
+      "model": "ochetgenyo:block/glyph/consonant/n/bottom/both",
+      "y": 270
+    },
+    "facing=west,connection=none,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 270
+    },
+    "facing=west,connection=top,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 270
+    },
+    "facing=west,connection=bottom,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 270
+    },
+    "facing=west,connection=both,form=both": {
+      "model": "ochetgenyo:block/glyph/consonant/n/both/both",
+      "y": 270
+    }
+  }
+}

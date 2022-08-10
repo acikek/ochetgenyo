@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,connection=none": {
+      "model": "ochetgenyo:block/base/none",
+      "y": 90
+    },
+    "facing=east,connection=top": {
+      "model": "ochetgenyo:block/base/top",
+      "y": 90
+    },
+    "facing=east,connection=bottom": {
+      "model": "ochetgenyo:block/base/bottom",
+      "y": 90
+    },
+    "facing=east,connection=both": {
+      "model": "ochetgenyo:block/base/both",
+      "y": 90
+    },
+    "facing=north,connection=none": {
+      "model": "ochetgenyo:block/base/none"
+    },
+    "facing=north,connection=top": {
+      "model": "ochetgenyo:block/base/top"
+    },
+    "facing=north,connection=bottom": {
+      "model": "ochetgenyo:block/base/bottom"
+    },
+    "facing=north,connection=both": {
+      "model": "ochetgenyo:block/base/both"
+    },
+    "facing=south,connection=none": {
+      "model": "ochetgenyo:block/base/none",
+      "y": 180
+    },
+    "facing=south,connection=top": {
+      "model": "ochetgenyo:block/base/top",
+      "y": 180
+    },
+    "facing=south,connection=bottom": {
+      "model": "ochetgenyo:block/base/bottom",
+      "y": 180
+    },
+    "facing=south,connection=both": {
+      "model": "ochetgenyo:block/base/both",
+      "y": 180
+    },
+    "facing=west,connection=none": {
+      "model": "ochetgenyo:block/base/none",
+      "y": 270
+    },
+    "facing=west,connection=top": {
+      "model": "ochetgenyo:block/base/top",
+      "y": 270
+    },
+    "facing=west,connection=bottom": {
+      "model": "ochetgenyo:block/base/bottom",
+      "y": 270
+    },
+    "facing=west,connection=both": {
+      "model": "ochetgenyo:block/base/both",
+      "y": 270
+    }
+  }
+}
