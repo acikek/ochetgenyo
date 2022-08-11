@@ -1,6 +1,5 @@
 package com.acikek.ochetgenyo.block;
 
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,8 +16,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public abstract class GlyphBlock extends GlyphBase {
 
 	public static final EnumProperty<DyeColor> COLOR = EnumProperty.of("color", DyeColor.class);
@@ -28,13 +25,6 @@ public abstract class GlyphBlock extends GlyphBase {
 	public GlyphBlock(char character) {
 		this.character = character;
 		setDefaultState(getStateManager().getDefaultState().with(COLOR, DyeColor.WHITE));
-	}
-
-	public static void registerColorProvider(List<GlyphBlock> blocks) {
-		ColorProviderRegistry.BLOCK.register(
-				(blockState, blockRenderView, blockPos, i) -> blockState.get(GlyphBlock.COLOR).getSignColor(),
-				blocks.toArray(new GlyphBlock[0])
-		);
 	}
 
 	@Override
