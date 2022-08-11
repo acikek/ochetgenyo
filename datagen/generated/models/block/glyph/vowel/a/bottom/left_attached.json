@@ -1,7 +1,0 @@
-{
-  "parent": "ochetgenyo:block/glyph/template",
-  "textures": {
-    "front": "ochetgenyo:block/base/bottom",
-    "overlay": "ochetgenyo:block/glyph/vowel/a_left_attached"
-  }
-}

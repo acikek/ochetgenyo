@@ -1,7 +1,8 @@
 {
-  "parent": "ochetgenyo:block/glyph/template",
+  "parent": "ochetgenyo:block/glyph/template2",
   "textures": {
     "front": "ochetgenyo:block/base/top",
-    "overlay": "ochetgenyo:block/glyph/consonant/g_top"
+    "overlay": "ochetgenyo:block/glyph/consonant/g_top",
+    "overlay2": "ochetgenyo:block/glyph/consonant/g_top_2"
   }
 }

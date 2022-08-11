@@ -1,6 +1,11 @@
 VOWELS = ["a", "e", "o"]
 CONSONANTS = ["t", "k", "j", "v", "s", "n", "p", "g"]
 
+BLOCK = {
+  "orientation": ["a"],
+  "double": ["a", "t"]
+}
+
 CONNECTION_TYPES = ["none", "top", "bottom", "both"]
 
 CONNECTIONS = {
@@ -17,16 +22,32 @@ FACING = {
   "west": 270 
 }
 
+MODEL_TEMPLATES = {
+  "base": "base/template", 
+  "glyph": "glyph/template", 
+  "glyph2": "glyph/template2"
+}
+
 def iter_forms(all, fn):
   for form, connections in CONNECTIONS.items():
     for connection in CONNECTION_TYPES if all else connections:
       fn(form, connection)
 
-def iter_vowel_forms(fn):
+def vowel_path(orientation, attached):
+  objs = []
+  if orientation is not None:
+    objs.append(orientation)
+  if attached:
+    objs.append("attached")
+  if len(objs) == 0:
+    return "normal"
+  return "_".join(objs)
+
+def iter_vowel_forms(character, fn):
   for connection in CONNECTIONS:
     for attached in [True, False]:
-      for orientation in ["left", "right"]:
-        fn(connection, attached, orientation)
+      for orientation in ["left", "right"] if character not in BLOCK["orientation"] else [None]:
+        fn(connection, attached, orientation, vowel_path(orientation, attached))
 
 def identifier(path):
   return f"ochetgenyo:block/{path}"

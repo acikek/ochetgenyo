@@ -31,3 +31,4 @@ workspace/
 
 # Datagen
 __pycache__
+datagen/generated
