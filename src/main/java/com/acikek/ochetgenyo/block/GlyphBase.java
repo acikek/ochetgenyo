@@ -29,6 +29,12 @@ public class GlyphBase extends HorizontalFacingBlock {
 		return other.getBlock() instanceof GlyphBase && state.get(FACING) == other.get(FACING);
 	}
 
+	public BlockState update(WorldAccess world, BlockState state, BlockPos pos) {
+		BlockState above = world.getBlockState(pos.up());
+		BlockState below = world.getBlockState(pos.down());
+		return update(state, above, canConnect(state, above), below, canConnect(state, below));
+	}
+
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
 		return state.with(CONNECTION, Connection.getByNeighbors(connectAbove, connectBelow));
 	}
@@ -36,9 +42,7 @@ public class GlyphBase extends HorizontalFacingBlock {
 	@Override
 	public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
 		if (neighborPos.equals(pos.up()) || neighborPos.equals(pos.down())) {
-			BlockState above = world.getBlockState(pos.up());
-			BlockState below = world.getBlockState(pos.down());
-			return update(state, above, canConnect(state, above), below, canConnect(state, below));
+			return update(world, state, pos);
 		}
 		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
@@ -47,9 +51,7 @@ public class GlyphBase extends HorizontalFacingBlock {
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
 		BlockState state = super.getPlacementState(ctx).with(FACING, ctx.getPlayerFacing().getOpposite());
-		BlockState above = ctx.getWorld().getBlockState(ctx.getBlockPos().up());
-		BlockState below = ctx.getWorld().getBlockState(ctx.getBlockPos().down());
-		return update(state, above, canConnect(state, above), below, canConnect(state, below));
+		return update(ctx.getWorld(), state, ctx.getBlockPos());
 	}
 
 	@Override
