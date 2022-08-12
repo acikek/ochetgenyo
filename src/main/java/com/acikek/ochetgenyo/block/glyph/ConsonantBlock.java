@@ -10,14 +10,18 @@ public class ConsonantBlock extends GlyphBlock {
 
 	public static final EnumProperty<Connection> FORM = EnumProperty.of("form", Connection.class);
 
-	public ConsonantBlock(char character) {
+	public Orientation vowelOrientation;
+
+	public ConsonantBlock(char character, Orientation vowelOrientation) {
 		super(character);
+		this.vowelOrientation = vowelOrientation;
 		setDefaultState(getStateManager().getDefaultState().with(FORM, Connection.NONE));
 	}
 
 	@Override
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
-		return super.update(state, above, connectAbove, below, connectBelow);
+		Connection connection = Connection.getByNeighbors(connectAbove && above.getBlock() instanceof VowelBlock, connectBelow && below.getBlock() instanceof VowelBlock);
+		return super.update(state, above, connectAbove, below, connectBelow).with(FORM, connection);
 	}
 
 	@Override

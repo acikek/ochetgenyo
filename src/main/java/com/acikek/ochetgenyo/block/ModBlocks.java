@@ -46,14 +46,14 @@ public class ModBlocks {
 		A_GLYPH = registerGlyph(new VowelBlock('a'));
 		E_GLYPH = registerGlyph(new OrientableVowelBlock('e'));
 		O_GLYPH = registerGlyph(new OrientableVowelBlock('o'));
-		T_GLYPH = registerGlyph(new ConsonantBlock('t'));
-		K_GLYPH = registerGlyph(new ConsonantBlock('k'));
-		J_GLYPH = registerGlyph(new ConsonantBlock('j'));
-		V_GLYPH = registerGlyph(new ConsonantBlock('v'));
-		S_GLYPH = registerGlyph(new ConsonantBlock('s'));
-		N_GLYPH = registerGlyph(new ConsonantBlock('n'));
-		P_GLYPH = registerGlyph(new ConsonantBlock('p'));
-		G_GLYPH = registerGlyph(new ConsonantBlock('g'));
+		T_GLYPH = registerGlyph(new ConsonantBlock('t', Orientation.RIGHT));
+		K_GLYPH = registerGlyph(new ConsonantBlock('k', Orientation.RIGHT));
+		J_GLYPH = registerGlyph(new ConsonantBlock('j', Orientation.RIGHT));
+		V_GLYPH = registerGlyph(new ConsonantBlock('v', Orientation.LEFT));
+		S_GLYPH = registerGlyph(new ConsonantBlock('s', Orientation.RIGHT));
+		N_GLYPH = registerGlyph(new ConsonantBlock('n', Orientation.LEFT));
+		P_GLYPH = registerGlyph(new ConsonantBlock('p', Orientation.RIGHT));
+		G_GLYPH = registerGlyph(new ConsonantBlock('g', Orientation.LEFT));
 		STOP_GLYPH = registerGlyph(new StopBlock());
 	}
 }

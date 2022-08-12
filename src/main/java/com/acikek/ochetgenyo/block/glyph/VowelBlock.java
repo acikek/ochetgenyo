@@ -15,6 +15,12 @@ public class VowelBlock extends GlyphBlock {
 	}
 
 	@Override
+	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
+		boolean attached = (connectAbove && above.getBlock() instanceof ConsonantBlock) || (connectBelow && below.getBlock() instanceof ConsonantBlock);
+		return super.update(state, above, connectAbove, below, connectBelow).with(ATTACHED, attached);
+	}
+
+	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		super.appendProperties(builder);
 		builder.add(ATTACHED);
