@@ -1,13 +1,12 @@
-package com.acikek.ochetgenyo.block;
+package com.acikek.ochetgenyo.block.glyph;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.StringIdentifiable;
 
-public class VowelBlock extends GlyphBlock {
+public class OrientableVowelBlock extends VowelBlock {
 
 	public enum Orientation implements StringIdentifiable {
 
@@ -20,19 +19,16 @@ public class VowelBlock extends GlyphBlock {
 		}
 	}
 
-	public static final BooleanProperty ATTACHED = BooleanProperty.of("attached");
 	public static final EnumProperty<Orientation> ORIENTATION = EnumProperty.of("orientation", Orientation.class);
 
-	public VowelBlock(char character) {
+	public OrientableVowelBlock(char character) {
 		super(character);
-		setDefaultState(getDefaultState()
-				.with(ATTACHED, false)
-				.with(ORIENTATION, Orientation.RIGHT));
+		setDefaultState(getStateManager().getDefaultState().with(ORIENTATION, Orientation.RIGHT));
 	}
 
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		super.appendProperties(builder);
-		builder.add(ATTACHED, ORIENTATION);
+		builder.add(ORIENTATION);
 	}
 }

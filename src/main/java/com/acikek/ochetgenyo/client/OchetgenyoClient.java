@@ -1,7 +1,7 @@
 package com.acikek.ochetgenyo.client;
 
 import com.acikek.ochetgenyo.block.ModBlocks;
-import com.acikek.ochetgenyo.block.GlyphBlock;
+import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.quiltmc.loader.api.ModContainer;

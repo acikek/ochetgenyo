@@ -1,6 +1,6 @@
 package com.acikek.ochetgenyo.client;
 
-import com.acikek.ochetgenyo.block.GlyphBlock;
+import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.util.DyeColor;

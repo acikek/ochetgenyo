@@ -1,5 +1,6 @@
-package com.acikek.ochetgenyo.block;
+package com.acikek.ochetgenyo.block.glyph;
 
+import com.acikek.ochetgenyo.block.GlyphBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

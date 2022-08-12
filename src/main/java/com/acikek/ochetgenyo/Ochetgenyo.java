@@ -1,7 +1,6 @@
 package com.acikek.ochetgenyo;
 
 import com.acikek.ochetgenyo.block.ModBlocks;
-import com.acikek.ochetgenyo.block.GlyphBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -29,6 +28,5 @@ public class Ochetgenyo implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		ModBlocks.register();
-		GlyphBlock.registerColorProvider(ModBlocks.GLYPH_BLOCKS);
 	}
 }

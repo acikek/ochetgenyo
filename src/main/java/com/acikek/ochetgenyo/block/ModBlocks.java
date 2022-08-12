@@ -1,6 +1,10 @@
 package com.acikek.ochetgenyo.block;
 
 import com.acikek.ochetgenyo.Ochetgenyo;
+import com.acikek.ochetgenyo.block.glyph.ConsonantBlock;
+import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
+import com.acikek.ochetgenyo.block.glyph.OrientableVowelBlock;
+import com.acikek.ochetgenyo.block.glyph.VowelBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
@@ -14,6 +18,8 @@ public class ModBlocks {
 
 	public static GlyphBase GLYPH_BASE;
 	public static GlyphBlock OCHETGENYO_A_GLYPH;
+	public static GlyphBlock OCHETGENYO_E_GLYPH;
+	public static GlyphBlock OCHETGENYO_O_GLYPH;
 	public static GlyphBlock OCHETGENYO_K_GLYPH;
 
 	public static List<GlyphBlock> GLYPH_BLOCKS = new ArrayList<>();
@@ -25,15 +31,16 @@ public class ModBlocks {
 		return block;
 	}
 
-	public static GlyphBlock registerGlyphBlock(char character, boolean consonant) {
-		GlyphBlock block = consonant ? new ConsonantBlock(character) : new VowelBlock(character);
+	public static GlyphBlock registerGlyph(GlyphBlock block) {
 		GLYPH_BLOCKS.add(block);
-		return registerBlock("ochetgenyo_" + character + "_glyph", block);
+		return registerBlock("ochetgenyo_" + block.character + "_glyph", block);
 	}
 
 	public static void register() {
 		GLYPH_BASE = registerBlock("glyph_base", new GlyphBase());
-		OCHETGENYO_A_GLYPH = registerGlyphBlock('a', false);
-		OCHETGENYO_K_GLYPH = registerGlyphBlock('k', true);
+		OCHETGENYO_A_GLYPH = registerGlyph(new VowelBlock('a'));
+		OCHETGENYO_E_GLYPH = registerGlyph(new OrientableVowelBlock('e'));
+		OCHETGENYO_O_GLYPH = registerGlyph(new OrientableVowelBlock('o'));
+		OCHETGENYO_K_GLYPH = registerGlyph(new ConsonantBlock('k'));
 	}
 }
