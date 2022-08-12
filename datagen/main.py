@@ -7,8 +7,9 @@ from shutil import copyfile
 from util import *
 import blockstates
 import models
+import recipes
 
-Block = namedtuple("Block", ["name", "blockstate", "models"])
+Block = namedtuple("Block", ["name", "blockstate", "models", "parent", "recipe"])
 
 def write_file(path, obj):
   os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -20,28 +21,35 @@ def write(block):
   write_file(f"generated/blockstates/{block.name}", { "variants": block.blockstate })
   for path, model in block.models.items():
     write_file(f"generated/models/block/{path}", model)
+  write_file(f"generated/models/item/{block.name}", {
+    "parent": f"ochetgenyo:block/{block.parent}"
+  })
+  if block.recipe is not None:
+    write_file(f"generated/recipes/{block.name}", block.recipe)
 
 def base():
-  return Block("glyph_base", blockstates.base("base"), models.base("base"))
+  return Block("glyph_base", blockstates.base("base"), models.base("base"), "base/none", None)
 
-def glyphs(list, blockstate, model):
+def glyphs(list, blockstate, model, kind):
   return [Block(
     f"{g}_glyph", 
     blockstate(g), 
-    model(g)
+    model(g),
+    f"glyph/{kind}/{g}/none/{'none' if g not in ITEM_MODEL else ITEM_MODEL[g]}",
+    recipes.glyph(g)
   ) for g in list]
 
 def stop():
-  return Block("stop_glyph", blockstates.base("glyph/stop"), models.base("glyph/stop", True))
+  return Block("stop_glyph", blockstates.base("glyph/stop"), models.base("glyph/stop", True), "glyph/stop/none", recipes.glyph("stop"))
 
 write(base())
 write(stop())
-for c in glyphs(CONSONANTS, blockstates.consonant, models.consonant):
+for c in glyphs(CONSONANTS, blockstates.consonant, models.consonant, "consonant"):
   write(c)
-for v in glyphs(VOWELS, blockstates.vowel, models.vowel):
+for v in glyphs(VOWELS, blockstates.vowel, models.vowel, "vowel"):
   write(v)
 
-for template, dst in MODEL_TEMPLATES.items():
-  path = f"generated/models/block/{dst}.json"
+for file, dst in STATIC_CONTENT.items():
+  path = f"generated/{dst}.json"
   os.makedirs(os.path.dirname(path), exist_ok=True)
-  copyfile(f"templates/{template}.json", path)
+  copyfile(f"static/{file}.json", path)

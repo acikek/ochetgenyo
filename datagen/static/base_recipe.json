@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DBD",
+    "DBD",
+    "DBD"
+  ],
+  "key": {
+    "D": [
+      {
+        "item": "minecraft:deepslate"
+      },
+      {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    ],
+    "B": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "result": {
+    "item": "ochetgenyo:glyph_base",
+    "count": 8
+  }
+}

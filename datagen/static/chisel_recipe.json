@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " Q",
+    "D "
+  ],
+  "key": {
+    "D": [
+      {
+        "item": "minecraft:deepslate"
+      },
+      {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    ],
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "item": "ochetgenyo:glyph_chisel"
+  }
+}

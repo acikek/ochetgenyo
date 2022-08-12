@@ -40,7 +40,7 @@ public abstract class GlyphBlock extends GlyphBase {
 		ItemStack handStack = player.getStackInHand(hand);
 		if (handStack.getItem() instanceof DyeItem dyeItem) {
 			world.setBlockState(pos, state.with(COLOR, dyeItem.getColor()));
-			world.playSound(null, pos, SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+			world.playSound(null, pos, SoundEvents.ITEM_GLOW_INK_SAC_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
 			if (!player.isCreative()) {
 				handStack.decrement(1);
 			}

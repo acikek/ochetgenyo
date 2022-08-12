@@ -22,10 +22,13 @@ FACING = {
   "west": 270 
 }
 
-MODEL_TEMPLATES = {
-  "base": "base/template", 
-  "glyph": "glyph/template", 
-  "glyph2": "glyph/template2"
+STATIC_CONTENT = {
+  "base_template": "models/block/base/template", 
+  "glyph": "models/block/glyph/template", 
+  "glyph2": "models/block/glyph/template2",
+  "chisel_model": "models/item/glyph_chisel",
+  "base_recipe": "recipes/glyph_base",
+  "chisel_recipe": "recipes/glyph_chisel"
 }
 
 TEXTURE_OVERRIDES = {
@@ -36,6 +39,12 @@ TEXTURE_OVERRIDES = {
   "n_bottom_2": "n_none_2",
   "stop": "stop/layer_1",
   "stop_2": "stop/layer_2"
+}
+
+ITEM_MODEL = {
+  "a": "normal",
+  "e": "right",
+  "o": "right"
 }
 
 def iter_forms(all, fn):
