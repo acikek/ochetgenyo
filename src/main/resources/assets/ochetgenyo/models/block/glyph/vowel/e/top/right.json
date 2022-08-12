@@ -1,7 +1,8 @@
 {
-  "parent": "ochetgenyo:block/glyph/template",
+  "parent": "ochetgenyo:block/glyph/template2",
   "textures": {
     "front": "ochetgenyo:block/base/top",
-    "overlay": "ochetgenyo:block/glyph/vowel/e_right"
+    "overlay": "ochetgenyo:block/glyph/vowel/e_right",
+    "overlay2": "ochetgenyo:block/glyph/vowel/e_right_2"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "ochetgenyo:block/glyph/template",
   "textures": {
     "front": "ochetgenyo:block/base/none",
-    "overlay": "ochetgenyo:block/glyph/vowel/a_right_attached"
+    "overlay": "ochetgenyo:block/glyph/vowel/a_attached"
   }
 }
