@@ -13,22 +13,35 @@ def make_model(template, obj):
 def add_model_entry(models, path, template, obj):
   models[path] = make_model(template, obj)
 
-def base():
+def fix_overlay(overlay):
+  components = overlay.split("/")
+  if components[-1] in TEXTURE_OVERRIDES:
+    components[-1] = TEXTURE_OVERRIDES[components[-1]]
+  return "/".join(components)
+
+def add_overlay(obj, character, path):
+  overlay = identifier(f"{path}")
+  overlay2 = f"{overlay}_2"
+  obj["overlay"] = fix_overlay(overlay)
+  if character not in BLOCK["double"]:
+    obj["overlay2"] = fix_overlay(overlay2)
+
+def base(path, stop=False):
   models = {}
   for connection in CONNECTIONS:
-    add_model_entry(models, f"base/{connection}", BASE_TEMPLATE, {
+    obj = {
       "front": identifier(f"base/{connection}")
-    })
+    }
+    if stop:
+      add_overlay(obj, None, path)
+    add_model_entry(models, f"{path}/{connection}", BASE_TEMPLATE if not stop else GLYPH_TEMPLATE_2, obj)
   return models
 
 def glyph_obj(character, connection, path):
-  overlay = identifier(f"glyph/{path}")
   obj = {
-    "front": identifier(f"base/{connection}"),
-    "overlay": overlay
+    "front": identifier(f"base/{connection}")
   }
-  if character not in BLOCK["double"]:
-    obj["overlay2"] = f"{overlay}_2"
+  add_overlay(obj, character, f"glyph/{path}")
   return obj
 
 def glyph_template(character):

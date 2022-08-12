@@ -13,11 +13,11 @@ def add_blockstate_entry(obj, path, facing, rotation, connection, extra=None, mo
   obj[name] = entry
   return obj
 
-def base():
+def base(path):
   obj = {}
   for facing, rotation in FACING.items():
     for connection in CONNECTIONS:
-      add_blockstate_entry(obj, "base", facing, rotation, connection, model=[connection])
+      add_blockstate_entry(obj, path, facing, rotation, connection, model=[connection])
   return obj
 
 def consonant(character):

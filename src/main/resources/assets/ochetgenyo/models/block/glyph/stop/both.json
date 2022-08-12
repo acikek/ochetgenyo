@@ -2,7 +2,7 @@
   "parent": "ochetgenyo:block/glyph/template2",
   "textures": {
     "front": "ochetgenyo:block/base/both",
-    "overlay": "ochetgenyo:block/glyph/vowel/o_left",
-    "overlay2": "ochetgenyo:block/glyph/vowel/o_normal_2"
+    "overlay": "ochetgenyo:block/glyph/stop/layer_1",
+    "overlay2": "ochetgenyo:block/glyph/stop/layer_2"
   }
 }

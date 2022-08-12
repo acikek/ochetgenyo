@@ -3,6 +3,6 @@
   "textures": {
     "front": "ochetgenyo:block/base/both",
     "overlay": "ochetgenyo:block/glyph/consonant/k_top",
-    "overlay2": "ochetgenyo:block/glyph/consonant/k_top_2"
+    "overlay2": "ochetgenyo:block/glyph/consonant/k_none_2"
   }
 }

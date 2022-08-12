@@ -22,16 +22,20 @@ def write(block):
     write_file(f"generated/models/block/{path}", model)
 
 def base():
-  return Block("glyph_base", blockstates.base(), models.base())
+  return Block("glyph_base", blockstates.base("base"), models.base("base"))
 
 def glyphs(list, blockstate, model):
   return [Block(
-    f"ochetgenyo_{g}_glyph", 
+    f"{g}_glyph", 
     blockstate(g), 
     model(g)
   ) for g in list]
 
+def stop():
+  return Block("stop_glyph", blockstates.base("glyph/stop"), models.base("glyph/stop", True))
+
 write(base())
+write(stop())
 for c in glyphs(CONSONANTS, blockstates.consonant, models.consonant):
   write(c)
 for v in glyphs(VOWELS, blockstates.vowel, models.vowel):

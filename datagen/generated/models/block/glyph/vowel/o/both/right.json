@@ -3,6 +3,6 @@
   "textures": {
     "front": "ochetgenyo:block/base/both",
     "overlay": "ochetgenyo:block/glyph/vowel/o_right",
-    "overlay2": "ochetgenyo:block/glyph/vowel/o_right_2"
+    "overlay2": "ochetgenyo:block/glyph/vowel/o_normal_2"
   }
 }

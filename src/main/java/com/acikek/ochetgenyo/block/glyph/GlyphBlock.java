@@ -28,6 +28,10 @@ public abstract class GlyphBlock extends GlyphBase {
 		setDefaultState(getStateManager().getDefaultState().with(COLOR, DyeColor.WHITE));
 	}
 
+	public String getId() {
+		return character + "_glyph";
+	}
+
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		if (hand != Hand.MAIN_HAND) {

@@ -17,7 +17,7 @@ public class GlyphBlockColorProvider implements BlockColorProvider {
 	public static Map<DyeColor, Pair<Integer, Integer>> HUES = new HashMap<>();
 
 	static {
-		HUES.put(DyeColor.RED, new Pair<>(0x00FF00, 0x00FF0F));
+		HUES.put(DyeColor.RED, new Pair<>(0xB83748, 0x913C62));
 	}
 
 	@Override

@@ -28,6 +28,16 @@ MODEL_TEMPLATES = {
   "glyph2": "glyph/template2"
 }
 
+TEXTURE_OVERRIDES = {
+  "o_right_2": "o_normal_2",
+  "o_left_2": "o_normal_2",
+  "k_top_2": "k_none_2",
+  "k_both_2": "k_bottom_2",
+  "n_bottom_2": "n_none_2",
+  "stop": "stop/layer_1",
+  "stop_2": "stop/layer_2"
+}
+
 def iter_forms(all, fn):
   for form, connections in CONNECTIONS.items():
     for connection in CONNECTION_TYPES if all else connections:

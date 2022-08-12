@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,connection=none": {
+      "model": "ochetgenyo:block/glyph/stop/none",
+      "y": 90
+    },
+    "facing=east,connection=top": {
+      "model": "ochetgenyo:block/glyph/stop/top",
+      "y": 90
+    },
+    "facing=east,connection=bottom": {
+      "model": "ochetgenyo:block/glyph/stop/bottom",
+      "y": 90
+    },
+    "facing=east,connection=both": {
+      "model": "ochetgenyo:block/glyph/stop/both",
+      "y": 90
+    },
+    "facing=north,connection=none": {
+      "model": "ochetgenyo:block/glyph/stop/none"
+    },
+    "facing=north,connection=top": {
+      "model": "ochetgenyo:block/glyph/stop/top"
+    },
+    "facing=north,connection=bottom": {
+      "model": "ochetgenyo:block/glyph/stop/bottom"
+    },
+    "facing=north,connection=both": {
+      "model": "ochetgenyo:block/glyph/stop/both"
+    },
+    "facing=south,connection=none": {
+      "model": "ochetgenyo:block/glyph/stop/none",
+      "y": 180
+    },
+    "facing=south,connection=top": {
+      "model": "ochetgenyo:block/glyph/stop/top",
+      "y": 180
+    },
+    "facing=south,connection=bottom": {
+      "model": "ochetgenyo:block/glyph/stop/bottom",
+      "y": 180
+    },
+    "facing=south,connection=both": {
+      "model": "ochetgenyo:block/glyph/stop/both",
+      "y": 180
+    },
+    "facing=west,connection=none": {
+      "model": "ochetgenyo:block/glyph/stop/none",
+      "y": 270
+    },
+    "facing=west,connection=top": {
+      "model": "ochetgenyo:block/glyph/stop/top",
+      "y": 270
+    },
+    "facing=west,connection=bottom": {
+      "model": "ochetgenyo:block/glyph/stop/bottom",
+      "y": 270
+    },
+    "facing=west,connection=both": {
+      "model": "ochetgenyo:block/glyph/stop/both",
+      "y": 270
+    }
+  }
+}
