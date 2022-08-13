@@ -25,6 +25,9 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public abstract class GlyphBlock extends GlyphBase {
 
@@ -41,20 +44,34 @@ public abstract class GlyphBlock extends GlyphBase {
 		return character + "_glyph";
 	}
 
-	public String gatherSentence(World world, BlockPos pos) {
-		StringBuilder sentence = new StringBuilder("" + character);
-		char lastChar = character;
-		BlockPos next = pos.down();
+	public static BlockPos iterateToFinalPos(World world, BlockPos pos, Function<BlockPos, BlockPos> direction, Consumer<Character> function) {
+		char lastChar = '\0';
+		BlockPos next = direction.apply(pos);
 		while (world.getBlockState(next).getBlock() instanceof GlyphBase glyphBase) {
 			char nextChar = glyphBase instanceof GlyphBlock glyphBlock ? glyphBlock.character : ' ';
 			if (lastChar == ' ' && nextChar == ' ') {
 				break;
 			}
-			sentence.append(nextChar);
+			if (function != null) {
+				function.accept(nextChar);
+			}
 			lastChar = nextChar;
-			next = next.down();
+			next = direction.apply(next);
 		}
+		return next;
+	}
+
+	public static String gatherSentence(World world, BlockPos pos) {
+		StringBuilder sentence = new StringBuilder();
+		BlockPos topPos = iterateToFinalPos(world, pos, BlockPos::up, null);
+		iterateToFinalPos(world, topPos, BlockPos::down, sentence::append);
 		return sentence.toString().trim();
+	}
+	
+	public static String processSentence(String sentence) {
+		return sentence
+				.replace("tj", "ch")
+				.replace("j", "y");
 	}
 
 	@Override
@@ -65,7 +82,7 @@ public abstract class GlyphBlock extends GlyphBase {
 		ItemStack handStack = player.getStackInHand(hand);
 		if (handStack.isEmpty() && player.isSneaking()) {
 			if (!world.isClient()) {
-				String sentence = gatherSentence(world, pos);
+				String sentence = processSentence(gatherSentence(world, pos));
 				player.sendMessage(Text.literal("'" + sentence + "'").styled(style -> style.withItalic(true)), false);
 			}
 			return ActionResult.SUCCESS;
