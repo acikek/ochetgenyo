@@ -7,10 +7,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -31,7 +34,7 @@ public abstract class GlyphBlock extends GlyphBase {
 
 	public GlyphBlock(char character) {
 		this.character = character;
-		setDefaultState(getStateManager().getDefaultState().with(COLOR, DyeColor.WHITE));
+		setDefaultState(getDefaultState().with(COLOR, DyeColor.WHITE));
 	}
 
 	public String getId() {
@@ -60,33 +63,27 @@ public abstract class GlyphBlock extends GlyphBase {
 			return ActionResult.PASS;
 		}
 		ItemStack handStack = player.getStackInHand(hand);
-		if (handStack.isEmpty() && player.isSneaking() && !world.isClient()) {
-			String sentence = gatherSentence(world, pos);
-			player.sendMessage(Text.literal("'" + sentence + "'").styled(style -> style.withItalic(true)), false);
-		}
-		else if (handStack.getItem() instanceof DyeItem dyeItem) {
-			world.setBlockState(pos, state.with(COLOR, dyeItem.getColor()));
-			world.playSound(null, pos, SoundEvents.ITEM_GLOW_INK_SAC_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-			if (!player.isCreative()) {
-				handStack.decrement(1);
+		if (handStack.isEmpty() && player.isSneaking()) {
+			if (!world.isClient()) {
+				String sentence = gatherSentence(world, pos);
+				player.sendMessage(Text.literal("'" + sentence + "'").styled(style -> style.withItalic(true)), false);
 			}
 			return ActionResult.SUCCESS;
 		}
-		return ActionResult.PASS;
-	}
-
-	public static DyeColor getContextualColor(BlockState state, BlockState above) {
-		if (state != null && canConnect(state, above) && above.getBlock() instanceof GlyphBlock && above.get(COLOR) != DyeColor.WHITE) {
-			return above.get(COLOR);
+		else if (handStack.getItem() instanceof DyeItem dyeItem && state.get(COLOR) != dyeItem.getColor()) {
+			world.setBlockState(pos, state.with(COLOR, dyeItem.getColor()));
+			return changeState(world, pos, SoundEvents.ITEM_DYE_USE, player, handStack);
 		}
-		return DyeColor.WHITE;
+		return super.onUse(state, world, pos, player, hand, hit);
 	}
 
 	@Override
-	public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
-		BlockState above = ctx.getWorld().getBlockState(ctx.getBlockPos().up());
-		BlockState state = super.getPlacementState(ctx);
-		return state.with(COLOR, getContextualColor(state, above));
+	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
+		BlockState newState = super.update(state, above, connectAbove, below, connectBelow, isPlacement);
+		if (isPlacement && connectAbove && above.getBlock() instanceof GlyphBlock) {
+			newState = newState.with(COLOR, above.get(COLOR));
+		}
+		return newState;
 	}
 
 	@Override

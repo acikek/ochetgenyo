@@ -11,14 +11,14 @@ public class OrientableVowelBlock extends VowelBlock {
 
 	public OrientableVowelBlock(char character) {
 		super(character);
-		setDefaultState(getStateManager().getDefaultState().with(ORIENTATION, Orientation.RIGHT));
+		setDefaultState(getDefaultState().with(ORIENTATION, Orientation.RIGHT));
 	}
 
 	@Override
-	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
-		BlockState newState = super.update(state, above, connectAbove, below, connectBelow);
+	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
+		BlockState newState = super.update(state, above, connectAbove, below, connectBelow, isPlacement);
 		if (connectAbove && above.getBlock() instanceof ConsonantBlock consonantBlock) {
-			newState = newState.with(ORIENTATION, consonantBlock.rules.vowelOrientation());
+			newState = newState.with(ORIENTATION, consonantBlock.vowelOrientation);
 		}
 		return newState;
 	}

@@ -11,13 +11,13 @@ public class VowelBlock extends GlyphBlock {
 
 	public VowelBlock(char character) {
 		super(character);
-		setDefaultState(getStateManager().getDefaultState().with(ATTACHED, false));
+		setDefaultState(getDefaultState().with(ATTACHED, false));
 	}
 
 	@Override
-	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
+	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
 		boolean attached = (connectAbove && !(above.getBlock() instanceof StopBlock)) || (connectBelow && !(below.getBlock() instanceof StopBlock));
-		return super.update(state, above, connectAbove, below, connectBelow).with(ATTACHED, attached);
+		return super.update(state, above, connectAbove, below, connectBelow, isPlacement).with(ATTACHED, attached);
 	}
 
 	@Override

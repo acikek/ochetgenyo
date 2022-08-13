@@ -6,29 +6,48 @@ import net.minecraft.block.BlockState;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 
+import java.util.List;
+
 public class ConsonantBlock extends GlyphBlock {
 
 	public static final EnumProperty<Connection> FORM = EnumProperty.of("form", Connection.class);
 
-	public record Rules(Orientation vowelOrientation, boolean connectLikeVowel, char[] exceptions) {
-	}
+	public Orientation vowelOrientation;
+	public boolean alwaysConnect;
+	public List<Character> exceptions;
 
-	public Rules rules;
-
-	public ConsonantBlock(char character, Rules rules) {
+	public ConsonantBlock(char character, Orientation vowelOrientation, boolean alwaysConnect, List<Character> exceptions) {
 		super(character);
-		this.rules = rules;
-		setDefaultState(getStateManager().getDefaultState().with(FORM, Connection.NONE));
+		this.vowelOrientation = vowelOrientation;
+		this.alwaysConnect = alwaysConnect;
+		this.exceptions = exceptions;
+		setDefaultState(getDefaultState().with(FORM, Connection.NONE));
 	}
 
 	public ConsonantBlock(char character, Orientation vowelOrientation) {
-		this(character, new Rules(vowelOrientation, false, null));
+		this(character, vowelOrientation, false, null);
+	}
+
+	public boolean isException(GlyphBlock other) {
+		return exceptions == null || !exceptions.contains(other.character);
+	}
+
+	public boolean canConnect(BlockState other) {
+		if (other.getBlock() instanceof VowelBlock) {
+			return true;
+		}
+		if (other.getBlock() instanceof GlyphBlock glyphBlock) {
+			return glyphBlock instanceof ConsonantBlock consonantBlock && consonantBlock.alwaysConnect
+					? consonantBlock.isException(this)
+					: alwaysConnect && isException(glyphBlock);
+		}
+		return false;
 	}
 
 	@Override
-	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
-		Connection connection = Connection.getByNeighbors(connectAbove && above.getBlock() instanceof VowelBlock, connectBelow && below.getBlock() instanceof VowelBlock);
-		return super.update(state, above, connectAbove, below, connectBelow).with(FORM, connection);
+	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
+		Connection connection = Connection.getByNeighbors(connectAbove && canConnect(above), connectBelow && canConnect(below));
+		return super.update(state, above, connectAbove, below, connectBelow, isPlacement).with(FORM, connection);
 	}
 
 	@Override

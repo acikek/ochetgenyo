@@ -48,8 +48,7 @@ public class ModBlocks {
 		O_GLYPH = registerGlyph(new OrientableVowelBlock('o'));
 		T_GLYPH = registerGlyph(new ConsonantBlock('t', Orientation.RIGHT));
 		K_GLYPH = registerGlyph(new ConsonantBlock('k', Orientation.RIGHT));
-		ConsonantBlock.Rules jRules = new ConsonantBlock.Rules(Orientation.RIGHT, true, new char[] { 't' });
-		J_GLYPH = registerGlyph(new ConsonantBlock('j', jRules));
+		J_GLYPH = registerGlyph(new ConsonantBlock('j', Orientation.RIGHT, true, List.of('t')));
 		V_GLYPH = registerGlyph(new ConsonantBlock('v', Orientation.LEFT));
 		S_GLYPH = registerGlyph(new ConsonantBlock('s', Orientation.RIGHT));
 		N_GLYPH = registerGlyph(new ConsonantBlock('n', Orientation.LEFT));

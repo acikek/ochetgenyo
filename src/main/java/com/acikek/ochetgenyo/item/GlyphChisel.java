@@ -50,16 +50,12 @@ public class GlyphChisel extends Item {
 		if (sneaking && state.getBlock() instanceof OrientableVowelBlock) {
 			Orientation newOrientation = state.get(OrientableVowelBlock.ORIENTATION) == Orientation.LEFT ? Orientation.RIGHT : Orientation.LEFT;
 			context.getWorld().setBlockState(context.getBlockPos(), state.with(OrientableVowelBlock.ORIENTATION, newOrientation));
-			event = SoundEvents.ITEM_DYE_USE;
+			event = SoundEvents.ITEM_AXE_SCRAPE;
 		}
 		else if (!sneaking && state.getBlock() instanceof GlyphBase glyphBase) {
 			GlyphBlock nextBlock = getNextBlock(glyphBase);
-			BlockState nextState = nextBlock.getDefaultState()
-					.with(GlyphBlock.FACING, state.get(GlyphBlock.FACING))
-					.with(GlyphBlock.COLOR, state.contains(GlyphBlock.COLOR)
-							? state.get(GlyphBlock.COLOR)
-							: GlyphBlock.getContextualColor(state, context.getWorld().getBlockState(context.getBlockPos().up())));
-			context.getWorld().setBlockState(context.getBlockPos(), nextBlock.update(context.getWorld(), nextState, context.getBlockPos()));
+			BlockState nextState = nextBlock.getStateWithProperties(state);
+			context.getWorld().setBlockState(context.getBlockPos(), nextBlock.update(context.getWorld(), nextState, context.getBlockPos(), false));
 			event = SoundEvents.BLOCK_GRINDSTONE_USE;
 		}
 		if (event != null) {
