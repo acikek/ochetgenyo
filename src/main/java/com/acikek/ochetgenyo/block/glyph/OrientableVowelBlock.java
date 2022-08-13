@@ -18,7 +18,7 @@ public class OrientableVowelBlock extends VowelBlock {
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
 		BlockState newState = super.update(state, above, connectAbove, below, connectBelow);
 		if (connectAbove && above.getBlock() instanceof ConsonantBlock consonantBlock) {
-			newState = newState.with(ORIENTATION, consonantBlock.vowelOrientation);
+			newState = newState.with(ORIENTATION, consonantBlock.rules.vowelOrientation());
 		}
 		return newState;
 	}

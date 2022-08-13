@@ -12,6 +12,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
@@ -37,13 +38,33 @@ public abstract class GlyphBlock extends GlyphBase {
 		return character + "_glyph";
 	}
 
+	public String gatherSentence(World world, BlockPos pos) {
+		StringBuilder sentence = new StringBuilder("" + character);
+		char lastChar = character;
+		BlockPos next = pos.down();
+		while (world.getBlockState(next).getBlock() instanceof GlyphBase glyphBase) {
+			char nextChar = glyphBase instanceof GlyphBlock glyphBlock ? glyphBlock.character : ' ';
+			if (lastChar == ' ' && nextChar == ' ') {
+				break;
+			}
+			sentence.append(nextChar);
+			lastChar = nextChar;
+			next = next.down();
+		}
+		return sentence.toString().trim();
+	}
+
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		if (hand != Hand.MAIN_HAND) {
 			return ActionResult.PASS;
 		}
 		ItemStack handStack = player.getStackInHand(hand);
-		if (handStack.getItem() instanceof DyeItem dyeItem) {
+		if (handStack.isEmpty() && player.isSneaking() && !world.isClient()) {
+			String sentence = gatherSentence(world, pos);
+			player.sendMessage(Text.literal("'" + sentence + "'").styled(style -> style.withItalic(true)), false);
+		}
+		else if (handStack.getItem() instanceof DyeItem dyeItem) {
 			world.setBlockState(pos, state.with(COLOR, dyeItem.getColor()));
 			world.playSound(null, pos, SoundEvents.ITEM_GLOW_INK_SAC_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
 			if (!player.isCreative()) {
@@ -54,14 +75,18 @@ public abstract class GlyphBlock extends GlyphBase {
 		return ActionResult.PASS;
 	}
 
+	public static DyeColor getContextualColor(BlockState state, BlockState above) {
+		if (state != null && canConnect(state, above) && above.getBlock() instanceof GlyphBlock && above.get(COLOR) != DyeColor.WHITE) {
+			return above.get(COLOR);
+		}
+		return DyeColor.WHITE;
+	}
+
 	@Override
 	public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
 		BlockState above = ctx.getWorld().getBlockState(ctx.getBlockPos().up());
 		BlockState state = super.getPlacementState(ctx);
-		if (state != null && canConnect(state, above) && above.getBlock() instanceof GlyphBlock && above.get(COLOR) != DyeColor.WHITE) {
-			state = state.with(COLOR, above.get(COLOR));
-		}
-		return state;
+		return state.with(COLOR, getContextualColor(state, above));
 	}
 
 	@Override

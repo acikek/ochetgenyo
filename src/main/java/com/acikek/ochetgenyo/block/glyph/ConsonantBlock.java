@@ -10,12 +10,19 @@ public class ConsonantBlock extends GlyphBlock {
 
 	public static final EnumProperty<Connection> FORM = EnumProperty.of("form", Connection.class);
 
-	public Orientation vowelOrientation;
+	public record Rules(Orientation vowelOrientation, boolean connectLikeVowel, char[] exceptions) {
+	}
+
+	public Rules rules;
+
+	public ConsonantBlock(char character, Rules rules) {
+		super(character);
+		this.rules = rules;
+		setDefaultState(getStateManager().getDefaultState().with(FORM, Connection.NONE));
+	}
 
 	public ConsonantBlock(char character, Orientation vowelOrientation) {
-		super(character);
-		this.vowelOrientation = vowelOrientation;
-		setDefaultState(getStateManager().getDefaultState().with(FORM, Connection.NONE));
+		this(character, new Rules(vowelOrientation, false, null));
 	}
 
 	@Override

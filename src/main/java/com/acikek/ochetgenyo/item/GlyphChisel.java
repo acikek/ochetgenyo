@@ -1,17 +1,15 @@
 package com.acikek.ochetgenyo.item;
 
 import com.acikek.ochetgenyo.Ochetgenyo;
+import com.acikek.ochetgenyo.block.GlyphBase;
 import com.acikek.ochetgenyo.block.ModBlocks;
 import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import com.acikek.ochetgenyo.block.glyph.OrientableVowelBlock;
 import com.acikek.ochetgenyo.block.glyph.Orientation;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -36,6 +34,14 @@ public class GlyphChisel extends Item {
 		return false;
 	}
 
+	public static GlyphBlock getNextBlock(GlyphBase base) {
+		if (base instanceof GlyphBlock glyphBlock) {
+			int index = ModBlocks.GLYPH_BLOCKS.indexOf(glyphBlock) + 1;
+			return ModBlocks.GLYPH_BLOCKS.get(index >= ModBlocks.GLYPH_BLOCKS.size() ? 0 : index);
+		}
+		return ModBlocks.GLYPH_BLOCKS.get(0);
+	}
+
 	@Override
 	public ActionResult useOnBlock(ItemUsageContext context) {
 		BlockState state = context.getWorld().getBlockState(context.getBlockPos());
@@ -46,12 +52,13 @@ public class GlyphChisel extends Item {
 			context.getWorld().setBlockState(context.getBlockPos(), state.with(OrientableVowelBlock.ORIENTATION, newOrientation));
 			event = SoundEvents.ITEM_DYE_USE;
 		}
-		else if (!sneaking && state.getBlock() instanceof GlyphBlock glyphBlock) {
-			int index = ModBlocks.GLYPH_BLOCKS.indexOf(glyphBlock) + 1;
-			GlyphBlock nextBlock = ModBlocks.GLYPH_BLOCKS.get(index >= ModBlocks.GLYPH_BLOCKS.size() ? 0 : index);
+		else if (!sneaking && state.getBlock() instanceof GlyphBase glyphBase) {
+			GlyphBlock nextBlock = getNextBlock(glyphBase);
 			BlockState nextState = nextBlock.getDefaultState()
 					.with(GlyphBlock.FACING, state.get(GlyphBlock.FACING))
-					.with(GlyphBlock.COLOR, state.get(GlyphBlock.COLOR));
+					.with(GlyphBlock.COLOR, state.contains(GlyphBlock.COLOR)
+							? state.get(GlyphBlock.COLOR)
+							: GlyphBlock.getContextualColor(state, context.getWorld().getBlockState(context.getBlockPos().up())));
 			context.getWorld().setBlockState(context.getBlockPos(), nextBlock.update(context.getWorld(), nextState, context.getBlockPos()));
 			event = SoundEvents.BLOCK_GRINDSTONE_USE;
 		}

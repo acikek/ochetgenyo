@@ -3,7 +3,7 @@ package com.acikek.ochetgenyo.block.glyph;
 public class StopBlock extends GlyphBlock {
 
 	public StopBlock() {
-		super(' ');
+		super('.');
 	}
 
 	@Override
