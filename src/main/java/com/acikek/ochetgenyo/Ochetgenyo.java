@@ -28,7 +28,7 @@ public class Ochetgenyo implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
+		LOGGER.info("onkyo go ota {}", mod.metadata().name());
 		ModBlocks.register();
 		GlyphChisel.register();
 	}

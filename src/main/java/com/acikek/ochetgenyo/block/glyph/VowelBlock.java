@@ -16,7 +16,7 @@ public class VowelBlock extends GlyphBlock {
 
 	@Override
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow) {
-		boolean attached = (connectAbove && above.getBlock() instanceof ConsonantBlock) || (connectBelow && below.getBlock() instanceof ConsonantBlock);
+		boolean attached = (connectAbove && !(above.getBlock() instanceof StopBlock)) || (connectBelow && !(below.getBlock() instanceof StopBlock));
 		return super.update(state, above, connectAbove, below, connectBelow).with(ATTACHED, attached);
 	}
 

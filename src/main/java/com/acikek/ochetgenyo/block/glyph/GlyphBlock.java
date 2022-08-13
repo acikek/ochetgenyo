@@ -5,7 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.context.LootContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -16,6 +18,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public abstract class GlyphBlock extends GlyphBase {
 
@@ -47,6 +52,16 @@ public abstract class GlyphBlock extends GlyphBase {
 			return ActionResult.SUCCESS;
 		}
 		return ActionResult.PASS;
+	}
+
+	@Override
+	public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+		BlockState above = ctx.getWorld().getBlockState(ctx.getBlockPos().up());
+		BlockState state = super.getPlacementState(ctx);
+		if (state != null && canConnect(state, above) && above.getBlock() instanceof GlyphBlock && above.get(COLOR) != DyeColor.WHITE) {
+			state = state.with(COLOR, above.get(COLOR));
+		}
+		return state;
 	}
 
 	@Override

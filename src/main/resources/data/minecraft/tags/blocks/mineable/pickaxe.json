@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "ochetgenyo:glyph_base",
+    "ochetgenyo:a_glyph",
+    "ochetgenyo:e_glyph",
+    "ochetgenyo:o_glyph",
+    "ochetgenyo:t_glyph",
+    "ochetgenyo:k_glyph",
+    "ochetgenyo:j_glyph",
+    "ochetgenyo:v_glyph",
+    "ochetgenyo:s_glyph",
+    "ochetgenyo:n_glyph",
+    "ochetgenyo:p_glyph",
+    "ochetgenyo:g_glyph",
+    "ochetgenyo:stop_glyph"
+  ]
+}

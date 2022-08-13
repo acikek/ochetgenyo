@@ -1,0 +1,17 @@
+{
+  "block.ochetgenyo.glyph_base": "Glyph Base",
+  "block.ochetgenyo.a_glyph": "'A' Glyph",
+  "block.ochetgenyo.e_glyph": "'E' Glyph",
+  "block.ochetgenyo.o_glyph": "'O' Glyph",
+  "block.ochetgenyo.t_glyph": "'T' Glyph",
+  "block.ochetgenyo.k_glyph": "'K' Glyph",
+  "block.ochetgenyo.j_glyph": "'J' Glyph",
+  "block.ochetgenyo.v_glyph": "'V' Glyph",
+  "block.ochetgenyo.s_glyph": "'S' Glyph",
+  "block.ochetgenyo.n_glyph": "'N' Glyph",
+  "block.ochetgenyo.p_glyph": "'P' Glyph",
+  "block.ochetgenyo.g_glyph": "'G' Glyph",
+  "block.ochetgenyo.stop_glyph": "'Stop' Glyph",
+  "item.ochetgenyo.glyph_chisel": "Glyph Chisel",
+  "itemGroup.ochetgenyo.main": "Ochetgenyo"
+}

@@ -8,7 +8,9 @@
 			"name": "Ochetgenyo",
 			"description": "Decorate your walls with an ancient language",
 			"contributors": {
-				"acikek": "Owner"
+				"acikek": "Owner",
+				"VirtuaLilith": "Artist",
+				"Trudle": "Artist"
 			},
 			"contact": {
 				"homepage": "https://github.com/acikek/ochetgenyo",
@@ -36,6 +38,5 @@
 				"versions": ">=1.19.2"
 			}
 		]
-	},
-	"mixin": "ochetgenyo.mixins.json"
+	}
 }

@@ -44,6 +44,13 @@ ITEM_MODEL = {
   "o": "right"
 }
 
+BLOCK_LIST = VOWELS.copy()
+BLOCK_LIST.extend(CONSONANTS)
+BLOCK_LIST = list(map(lambda g: f"{g}_glyph", BLOCK_LIST))
+BLOCK_LIST.append("stop_glyph")
+BLOCK_LIST.insert(0, "glyph_base")
+ID_BLOCK_LIST = list(map(lambda item: f"ochetgenyo:{item}", BLOCK_LIST))
+
 def iter_forms(all, fn):
   for form, connections in CONNECTIONS.items():
     for connection in CONNECTION_TYPES if all else connections:

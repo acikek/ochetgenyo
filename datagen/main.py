@@ -4,10 +4,12 @@ import os
 from collections import namedtuple
 from shutil import copyfile
 
+
 from util import *
 import blockstates
 import models
 import recipes
+import loottables
 
 Block = namedtuple("Block", ["name", "blockstate", "models", "parent", "recipe"])
 
@@ -50,6 +52,8 @@ for v in glyphs(VOWELS, blockstates.vowel, models.vowel, "vowel"):
   write(v)
 
 write_file("generated/data/advancements/recipes/glyph_base", recipes.advancement())
+for block in BLOCK_LIST:
+  write_file(f"generated/data/loot_tables/blocks/{block}", loottables.loot_table(f"ochetgenyo:{block}"))
 
 for file, dst in STATIC_CONTENT.items():
   path = f"generated/{dst}.json"

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBS",
+    "SBS",
+    "SBS"
+  ],
+  "key": {
+    "S": [
+      {
+        "item": "minecraft:blackstone"
+      },
+      {
+        "item": "minecraft:polished_blackstone"
+      }
+    ],
+    "B": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "result": {
+    "item": "ochetgenyo:glyph_base",
+    "count": 8
+  }
+}
