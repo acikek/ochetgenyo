@@ -49,7 +49,7 @@ for c in glyphs(CONSONANTS, blockstates.consonant, models.consonant, "consonant"
 for v in glyphs(VOWELS, blockstates.vowel, models.vowel, "vowel"):
   write(v)
 
-write_file("generated/data/advancements/recipes/glyph_base.json", recipes.advancement())
+write_file("generated/data/advancements/recipes/glyph_base", recipes.advancement())
 
 for file, dst in STATIC_CONTENT.items():
   path = f"generated/{dst}.json"
