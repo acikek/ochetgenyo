@@ -31,18 +31,14 @@ For now, here are some basic words and grammar concepts.
 - **onkjo go**: they (singular), someone
 - **enjo**: we, us
 - **najo**: they (plural)
-
 - **a**: and
 - **o**: one, one of
 - **e**: *negation marker*
-
 - **na**: *plural marker*
 - **as, an**: a
 - **es, en**: the
-
 - **atje**: person
 - **osak**: bread
-
 - **pen**: good
 - **etjen**: bad
 
