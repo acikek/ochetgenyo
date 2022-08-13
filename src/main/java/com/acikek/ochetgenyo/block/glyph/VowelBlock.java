@@ -1,5 +1,6 @@
 package com.acikek.ochetgenyo.block.glyph;
 
+import com.acikek.ochetgenyo.block.GlyphBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.StateManager;
@@ -15,8 +16,17 @@ public class VowelBlock extends GlyphBlock {
 	}
 
 	@Override
+	public boolean isVowelConnectable() {
+		return true;
+	}
+
+	public boolean canConnect(BlockState other) {
+		return other.getBlock() instanceof GlyphBase glyphBase && glyphBase.isVowelConnectable();
+	}
+
+	@Override
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
-		boolean attached = (connectAbove && !(above.getBlock() instanceof StopBlock)) || (connectBelow && !(below.getBlock() instanceof StopBlock));
+		boolean attached = (connectAbove && canConnect(above)) || (connectBelow && canConnect(below));
 		return super.update(state, above, connectAbove, below, connectBelow, isPlacement).with(ATTACHED, attached);
 	}
 

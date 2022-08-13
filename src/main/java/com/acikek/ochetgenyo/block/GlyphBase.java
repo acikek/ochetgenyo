@@ -62,6 +62,10 @@ public class GlyphBase extends HorizontalFacingBlock {
 		return other.getBlock() instanceof GlyphBase && state.get(FACING) == other.get(FACING);
 	}
 
+	public boolean isVowelConnectable() {
+		return false;
+	}
+
 	public BlockState update(WorldAccess world, BlockState state, BlockPos pos, boolean isPlacement) {
 		BlockState above = world.getBlockState(pos.up());
 		BlockState below = world.getBlockState(pos.down());

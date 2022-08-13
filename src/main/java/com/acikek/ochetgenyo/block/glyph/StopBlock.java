@@ -10,4 +10,9 @@ public class StopBlock extends GlyphBlock {
 	public String getId() {
 		return "stop_glyph";
 	}
+
+	@Override
+	public boolean isVowelConnectable() {
+		return false;
+	}
 }

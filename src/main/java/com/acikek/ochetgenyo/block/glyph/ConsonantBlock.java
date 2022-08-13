@@ -28,6 +28,11 @@ public class ConsonantBlock extends GlyphBlock {
 		this(character, vowelOrientation, false, null);
 	}
 
+	@Override
+	public boolean isVowelConnectable() {
+		return true;
+	}
+
 	public boolean isException(GlyphBlock other) {
 		return exceptions == null || !exceptions.contains(other.character);
 	}
