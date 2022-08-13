@@ -1,7 +1,9 @@
 package com.acikek.ochetgenyo;
 
 import com.acikek.ochetgenyo.block.ModBlocks;
+import com.acikek.ochetgenyo.item.GlyphChisel;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
@@ -19,7 +21,7 @@ public class Ochetgenyo implements ModInitializer {
 	}
 
 	public static final ItemGroup ITEM_GROUP = QuiltItemGroup.builder(id("main"))
-			.icon(Items.STICK::getDefaultStack)
+			.icon(() -> new ItemStack(GlyphChisel.INSTANCE))
 			.build();
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(ID);
@@ -28,5 +30,6 @@ public class Ochetgenyo implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 		ModBlocks.register();
+		GlyphChisel.register();
 	}
 }

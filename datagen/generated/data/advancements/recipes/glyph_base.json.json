@@ -1,0 +1,59 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ochetgenyo:t_glyph",
+      "ochetgenyo:k_glyph",
+      "ochetgenyo:j_glyph",
+      "ochetgenyo:v_glyph",
+      "ochetgenyo:s_glyph",
+      "ochetgenyo:n_glyph",
+      "ochetgenyo:p_glyph",
+      "ochetgenyo:g_glyph",
+      "ochetgenyo:a_glyph",
+      "ochetgenyo:e_glyph",
+      "ochetgenyo:o_glyph",
+      "ochetgenyo:glyph_base"
+    ]
+  },
+  "criteria": {
+    "has_basalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:basalt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:deepslate",
+              "minecraft:cobbled_deepslate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ochetgenyo:glyph_base"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_basalt",
+      "has_deepslate",
+      "has_the_recipe"
+    ]
+  ]
+}

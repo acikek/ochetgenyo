@@ -18,14 +18,14 @@ def write_file(path, obj):
     file.close()
 
 def write(block):
-  write_file(f"generated/blockstates/{block.name}", { "variants": block.blockstate })
+  write_file(f"generated/assets/blockstates/{block.name}", { "variants": block.blockstate })
   for path, model in block.models.items():
-    write_file(f"generated/models/block/{path}", model)
-  write_file(f"generated/models/item/{block.name}", {
+    write_file(f"generated/assets/models/block/{path}", model)
+  write_file(f"generated/assets/models/item/{block.name}", {
     "parent": f"ochetgenyo:block/{block.parent}"
   })
   if block.recipe is not None:
-    write_file(f"generated/recipes/{block.name}", block.recipe)
+    write_file(f"generated/data/recipes/{block.name}", block.recipe)
 
 def base():
   return Block("glyph_base", blockstates.base("base"), models.base("base"), "base/none", None)
@@ -48,6 +48,8 @@ for c in glyphs(CONSONANTS, blockstates.consonant, models.consonant, "consonant"
   write(c)
 for v in glyphs(VOWELS, blockstates.vowel, models.vowel, "vowel"):
   write(v)
+
+write_file("generated/data/advancements/recipes/glyph_base.json", recipes.advancement())
 
 for file, dst in STATIC_CONTENT.items():
   path = f"generated/{dst}.json"

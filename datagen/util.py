@@ -23,12 +23,9 @@ FACING = {
 }
 
 STATIC_CONTENT = {
-  "base_template": "models/block/base/template", 
-  "glyph": "models/block/glyph/template", 
-  "glyph2": "models/block/glyph/template2",
-  "chisel_model": "models/item/glyph_chisel",
-  "base_recipe": "recipes/glyph_base",
-  "chisel_recipe": "recipes/glyph_chisel"
+  "base": "assets/models/block/base/template", 
+  "glyph": "assets/models/block/glyph/template", 
+  "glyph2": "assets/models/block/glyph/template2"
 }
 
 TEXTURE_OVERRIDES = {
