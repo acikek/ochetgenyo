@@ -55,7 +55,7 @@ public class GlyphChisel extends Item {
 		else if (!sneaking && state.getBlock() instanceof GlyphBase glyphBase) {
 			GlyphBlock nextBlock = getNextBlock(glyphBase);
 			BlockState nextState = nextBlock.getStateWithProperties(state);
-			context.getWorld().setBlockState(context.getBlockPos(), nextBlock.update(context.getWorld(), nextState, context.getBlockPos(), false));
+			context.getWorld().setBlockState(context.getBlockPos(), nextBlock.update(context.getWorld(), nextState, context.getBlockPos(), !(glyphBase instanceof GlyphBlock)));
 			event = SoundEvents.BLOCK_GRINDSTONE_USE;
 		}
 		if (event != null) {
