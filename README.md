@@ -1,6 +1,6 @@
 # Ochetgenyo
 
-Deocrate your walls with an ancient language
+Decorate your walls with an ancient language
 
 ## About
 
