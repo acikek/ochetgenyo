@@ -6,6 +6,7 @@ import com.acikek.ochetgenyo.block.ModBlocks;
 import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import com.acikek.ochetgenyo.block.glyph.OrientableVowelBlock;
 import com.acikek.ochetgenyo.block.glyph.Orientation;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,11 +18,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class GlyphChisel extends Item {
 
-	public static final GlyphChisel INSTANCE = new GlyphChisel(new QuiltItemSettings()
+	public static final GlyphChisel INSTANCE = new GlyphChisel(new FabricItemSettings()
 			.group(Ochetgenyo.ITEM_GROUP)
 			.maxCount(1));
 

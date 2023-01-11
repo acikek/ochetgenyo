@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "ochetgenyo",
+  "version": "${version}",
+
+  "name": "Ochetgenyo",
+  "description": "Decorate your walls with an ancient language",
+  "authors": [
+    "acikek",
+    "VirtuaLilith",
+    "Trudle"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/ochetgenyo",
+    "issues": "https://github.com/acikek/ochetgenyo/issues",
+    "sources": "https://github.com/acikek/ochetgenyo"
+  },
+
+  "license": "MIT",
+  "icon": "assets/ochetgenyo/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.acikek.ochetgenyo.Ochetgenyo"
+    ],
+    "client": [
+      "com.acikek.ochetgenyo.client.OchetgenyoClient"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": ">=1.19 <=1.19.2",
+    "java": ">=17"
+  }
+}

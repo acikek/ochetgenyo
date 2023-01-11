@@ -2,11 +2,11 @@ package com.acikek.ochetgenyo.block;
 
 import com.acikek.ochetgenyo.Ochetgenyo;
 import com.acikek.ochetgenyo.block.glyph.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ModBlocks {
 	public static <T extends Block> T registerBlock(String id, T block) {
 		Identifier blockId = Ochetgenyo.id(id);
 		Registry.register(Registry.BLOCK, blockId, block);
-		Registry.register(Registry.ITEM, blockId, new BlockItem(block, new QuiltItemSettings().group(Ochetgenyo.ITEM_GROUP)));
+		Registry.register(Registry.ITEM, blockId, new BlockItem(block, new FabricItemSettings().group(Ochetgenyo.ITEM_GROUP)));
 		return block;
 	}
 

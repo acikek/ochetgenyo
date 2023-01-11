@@ -1,5 +1,6 @@
 package com.acikek.ochetgenyo.block;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,14 +23,13 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
-import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 
 public class GlyphBase extends HorizontalFacingBlock {
 
 	public static final EnumProperty<Connection> CONNECTION = EnumProperty.of("connection", Connection.class);
 	public static final BooleanProperty GLOWING = BooleanProperty.of("glowing");
 
-	public static final Settings SETTINGS = QuiltBlockSettings.copy(Blocks.BASALT)
+	public static final Settings SETTINGS = FabricBlockSettings.copy(Blocks.BASALT)
 			.luminance(value -> value.get(GLOWING) ? 3 : 0)
 			.emissiveLighting((blockState, blockView, blockPos) -> blockState.get(GLOWING));
 
