@@ -14,7 +14,9 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -24,6 +26,8 @@ public class GlyphChisel extends Item {
 	public static final GlyphChisel INSTANCE = new GlyphChisel(new FabricItemSettings()
 			.group(Ochetgenyo.ITEM_GROUP)
 			.maxCount(1));
+
+	public static final Identifier CHISEL = Ochetgenyo.id("chisel");
 
 	public GlyphChisel(Settings settings) {
 		super(settings);
@@ -60,6 +64,7 @@ public class GlyphChisel extends Item {
 		}
 		if (event != null) {
 			context.getWorld().playSound(null, context.getBlockPos(), event, SoundCategory.BLOCKS, 1.0f, 1.0f);
+			context.getPlayer().incrementStat(CHISEL);
 			return ActionResult.SUCCESS;
 		}
 		return super.useOnBlock(context);
@@ -67,5 +72,7 @@ public class GlyphChisel extends Item {
 
 	public static void register() {
 		Registry.register(Registry.ITEM, Ochetgenyo.id("glyph_chisel"), INSTANCE);
+		Registry.register(Registry.CUSTOM_STAT, CHISEL, CHISEL);
+		Stats.CUSTOM.getOrCreateStat(CHISEL);
 	}
 }

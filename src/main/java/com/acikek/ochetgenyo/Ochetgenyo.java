@@ -26,7 +26,7 @@ public class Ochetgenyo implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("onkyo go ota ochetgenyo");
+		LOGGER.info("onkyo go ota Ochetgenyo");
 		ModBlocks.register();
 		GlyphChisel.register();
 	}
