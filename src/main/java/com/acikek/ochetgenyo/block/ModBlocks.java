@@ -5,8 +5,10 @@ import com.acikek.ochetgenyo.block.glyph.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,24 @@ public class ModBlocks {
 	public static GlyphBlock G_GLYPH;
 	public static GlyphBase STOP_GLYPH;
 
-	public static List<GlyphBlock> GLYPH_BLOCKS = new ArrayList<>();
+	public static List<Block> GLYPH_BLOCKS = new ArrayList<>();
+	public static TagKey<Block> GLYPHS = TagKey.of(Registry.BLOCK_KEY, Ochetgenyo.id("glyphs"));
+
+	public static List<GlyphBlock> getGlyphBlocks() {
+		var list = Registry.BLOCK.getEntryList(GLYPHS)
+				.orElseThrow(() -> new IllegalStateException("ochetgenyo:glyphs not found"));
+		List<GlyphBlock> blocks = new ArrayList<>();
+		for (RegistryEntry<Block> blockEntry : list) {
+			Block block = blockEntry.value();
+			if (block instanceof GlyphBlock glyphBlock) {
+				blocks.add(glyphBlock);
+			}
+			else {
+				throw new IllegalStateException(block + " is not a glyph block");
+			}
+		}
+		return blocks;
+	}
 
 	public static <T extends Block> T registerBlock(String id, T block) {
 		Identifier blockId = Ochetgenyo.id(id);

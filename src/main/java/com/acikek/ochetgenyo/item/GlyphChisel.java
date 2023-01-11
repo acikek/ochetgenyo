@@ -7,6 +7,7 @@ import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import com.acikek.ochetgenyo.block.glyph.OrientableVowelBlock;
 import com.acikek.ochetgenyo.block.glyph.Orientation;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -20,6 +21,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GlyphChisel extends Item {
 
@@ -39,11 +42,12 @@ public class GlyphChisel extends Item {
 	}
 
 	public static GlyphBlock getNextBlock(GlyphBase base) {
+		List<GlyphBlock> glyphBlocks = ModBlocks.getGlyphBlocks();
 		if (base instanceof GlyphBlock glyphBlock) {
-			int index = ModBlocks.GLYPH_BLOCKS.indexOf(glyphBlock) + 1;
-			return ModBlocks.GLYPH_BLOCKS.get(index >= ModBlocks.GLYPH_BLOCKS.size() ? 0 : index);
+			int index = glyphBlocks.indexOf(glyphBlock) + 1;
+			return glyphBlocks.get(index >= glyphBlocks.size() ? 0 : index);
 		}
-		return ModBlocks.GLYPH_BLOCKS.get(0);
+		return glyphBlocks.get(0);
 	}
 
 	@Override
