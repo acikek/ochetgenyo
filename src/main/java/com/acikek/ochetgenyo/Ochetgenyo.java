@@ -1,6 +1,6 @@
 package com.acikek.ochetgenyo;
 
-import com.acikek.ochetgenyo.block.ModBlocks;
+import com.acikek.ochetgenyo.block.OchetgenyoBlocks;
 import com.acikek.ochetgenyo.item.GlyphChisel;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -27,7 +27,7 @@ public class Ochetgenyo implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("onkyo go ota Ochetgenyo");
-		ModBlocks.register();
+		OchetgenyoBlocks.register();
 		GlyphChisel.register();
 	}
 }

@@ -1,13 +1,12 @@
 package com.acikek.ochetgenyo.item;
 
 import com.acikek.ochetgenyo.Ochetgenyo;
+import com.acikek.ochetgenyo.api.OchetgenyoAPI;
 import com.acikek.ochetgenyo.block.GlyphBase;
-import com.acikek.ochetgenyo.block.ModBlocks;
 import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import com.acikek.ochetgenyo.block.glyph.OrientableVowelBlock;
 import com.acikek.ochetgenyo.block.glyph.Orientation;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -42,7 +41,7 @@ public class GlyphChisel extends Item {
 	}
 
 	public static GlyphBlock getNextBlock(GlyphBase base) {
-		List<GlyphBlock> glyphBlocks = ModBlocks.getGlyphBlocks();
+		List<GlyphBlock> glyphBlocks = OchetgenyoAPI.getGlyphBlocks();
 		if (base instanceof GlyphBlock glyphBlock) {
 			int index = glyphBlocks.indexOf(glyphBlock) + 1;
 			return glyphBlocks.get(index >= glyphBlocks.size() ? 0 : index);

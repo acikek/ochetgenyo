@@ -5,15 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.context.LootContext;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -22,40 +16,43 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public abstract class GlyphBlock extends GlyphBase {
 
 	public static final EnumProperty<DyeColor> COLOR = EnumProperty.of("color", DyeColor.class);
 
-	public char character;
+	/**
+	 * The romanized phoneme.
+	 */
+	public String phoneme;
 
-	public GlyphBlock(char character) {
-		this.character = character;
+	public GlyphBlock(String phoneme) {
+		this.phoneme = phoneme;
 		setDefaultState(getDefaultState().with(COLOR, DyeColor.WHITE));
 	}
 
+	/**
+	 * @return the block ID path.
+	 */
 	public String getId() {
-		return character + "_glyph";
+		return phoneme + "_glyph";
 	}
 
-	public static BlockPos iterateToFinalPos(World world, BlockPos pos, Function<BlockPos, BlockPos> direction, Consumer<Character> function) {
-		char lastChar = '\0';
+	public static BlockPos iterateToFinalPos(World world, BlockPos pos, Function<BlockPos, BlockPos> direction, Consumer<String> function) {
+		String lastSound = "";
 		BlockPos next = direction.apply(pos);
 		while (world.getBlockState(next).getBlock() instanceof GlyphBase glyphBase) {
-			char nextChar = glyphBase instanceof GlyphBlock glyphBlock ? glyphBlock.character : ' ';
-			if (lastChar == ' ' && nextChar == ' ') {
+			String nextSound = glyphBase instanceof GlyphBlock glyphBlock ? glyphBlock.phoneme : " ";
+			if (lastSound.equals(" ") && nextSound.equals(" ")) {
 				break;
 			}
 			if (function != null) {
-				function.accept(nextChar);
+				function.accept(nextSound);
 			}
-			lastChar = nextChar;
+			lastSound = nextSound;
 			next = direction.apply(next);
 		}
 		return next;
@@ -67,8 +64,8 @@ public abstract class GlyphBlock extends GlyphBase {
 		iterateToFinalPos(world, topPos, BlockPos::down, sentence::append);
 		return sentence.toString().trim();
 	}
-	
-	public static String processSentence(String sentence) {
+
+	public String processSentence(String sentence) {
 		return sentence
 				.replace("tj", "ch")
 				.replace("j", "y");
@@ -89,7 +86,7 @@ public abstract class GlyphBlock extends GlyphBase {
 		}
 		else if (handStack.getItem() instanceof DyeItem dyeItem && state.get(COLOR) != dyeItem.getColor()) {
 			world.setBlockState(pos, state.with(COLOR, dyeItem.getColor()));
-			return changeState(world, pos, SoundEvents.ITEM_DYE_USE, player, handStack);
+			return handlePlayerInteraction(world, pos, SoundEvents.ITEM_DYE_USE, player, handStack);
 		}
 		return super.onUse(state, world, pos, player, hand, hit);
 	}

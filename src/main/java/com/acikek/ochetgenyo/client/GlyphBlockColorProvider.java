@@ -14,6 +14,8 @@ import java.util.Map;
 
 public class GlyphBlockColorProvider implements BlockColorProvider {
 
+	public static final GlyphBlockColorProvider INSTANCE = new GlyphBlockColorProvider();
+
 	public static Map<DyeColor, Pair<Integer, Integer>> HUES = new HashMap<>();
 
 	static {

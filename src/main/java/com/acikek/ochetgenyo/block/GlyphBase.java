@@ -41,7 +41,11 @@ public class GlyphBase extends HorizontalFacingBlock {
 				.with(GLOWING, false));
 	}
 
-	public static ActionResult changeState(World world, BlockPos pos, SoundEvent event, PlayerEntity player, ItemStack handStack) {
+	/**
+	 * Handles player interaction using a held item.
+	 * @return {@link ActionResult#SUCCESS} one-line calls and returns.
+	 */
+	public static ActionResult handlePlayerInteraction(World world, BlockPos pos, SoundEvent event, PlayerEntity player, ItemStack handStack) {
 		world.playSound(null, pos, event, SoundCategory.BLOCKS, 1.0f, 1.0f);
 		if (!player.isCreative()) {
 			handStack.decrement(1);
@@ -53,12 +57,16 @@ public class GlyphBase extends HorizontalFacingBlock {
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		if (hand == Hand.MAIN_HAND && player.getStackInHand(hand).isOf(Items.GLOW_INK_SAC) && !state.get(GLOWING)) {
 			world.setBlockState(pos, state.with(GLOWING, true));
-			return changeState(world, pos, SoundEvents.ITEM_GLOW_INK_SAC_USE, player, player.getStackInHand(hand));
+			return handlePlayerInteraction(world, pos, SoundEvents.ITEM_GLOW_INK_SAC_USE, player, player.getStackInHand(hand));
 		}
 		return ActionResult.PASS;
 	}
 
-	public static boolean canConnect(BlockState state, BlockState other) {
+	/**
+	 * Whether the <b>glyph base</b> states can connect to form a sentence pillar.
+	 * <b>Does not</b> check whether the states have connectable chiseled glyphs.
+	 */
+	public static boolean canConnectBases(BlockState state, BlockState other) {
 		return other.getBlock() instanceof GlyphBase && state.get(FACING) == other.get(FACING);
 	}
 
@@ -66,12 +74,27 @@ public class GlyphBase extends HorizontalFacingBlock {
 		return false;
 	}
 
+	/**
+	 * A wrapper around {@link GlyphBase#update(BlockState, BlockState, boolean, BlockState, boolean, boolean)} that calculates connections.
+	 * Should be used for external calls.
+	 */
 	public BlockState update(WorldAccess world, BlockState state, BlockPos pos, boolean isPlacement) {
 		BlockState above = world.getBlockState(pos.up());
 		BlockState below = world.getBlockState(pos.down());
-		return update(state, above, canConnect(state, above), below, canConnect(state, below), isPlacement);
+		return update(state, above, canConnectBases(state, above), below, canConnectBases(state, below), isPlacement);
 	}
 
+	/**
+	 * Modifies a base glyph state either when initially placed or during a neighbor block update based on several contextual parameters.
+	 * @param state the base state to be modified
+	 * @param above the state above this block
+	 * @param connectAbove whether this block can connect bases with the above state
+	 * @param below the state below this block
+	 * @param connectBelow whether this block can connect bases with the state below
+	 * @param isPlacement whether this block has just been placed by a player
+	 * @return the updated state
+	 * @deprecated Override, don't call!
+	 */
 	public BlockState update(BlockState state, BlockState above, boolean connectAbove, BlockState below, boolean connectBelow, boolean isPlacement) {
 		BlockState newState = state.with(CONNECTION, Connection.getByNeighbors(connectAbove, connectBelow));
 		if (isPlacement && connectAbove) {

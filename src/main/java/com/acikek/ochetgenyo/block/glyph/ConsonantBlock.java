@@ -14,18 +14,18 @@ public class ConsonantBlock extends GlyphBlock {
 
 	public Orientation vowelOrientation;
 	public boolean alwaysConnect;
-	public List<Character> exceptions;
+	public List<GlyphBlock> exceptions;
 
-	public ConsonantBlock(char character, Orientation vowelOrientation, boolean alwaysConnect, List<Character> exceptions) {
-		super(character);
+	public ConsonantBlock(String phoneme, Orientation vowelOrientation, boolean alwaysConnect, List<GlyphBlock> exceptions) {
+		super(phoneme);
 		this.vowelOrientation = vowelOrientation;
 		this.alwaysConnect = alwaysConnect;
 		this.exceptions = exceptions;
 		setDefaultState(getDefaultState().with(FORM, Connection.NONE));
 	}
 
-	public ConsonantBlock(char character, Orientation vowelOrientation) {
-		this(character, vowelOrientation, false, null);
+	public ConsonantBlock(String phoneme, Orientation vowelOrientation) {
+		this(phoneme, vowelOrientation, false, null);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class ConsonantBlock extends GlyphBlock {
 	}
 
 	public boolean isException(GlyphBlock other) {
-		return exceptions == null || !exceptions.contains(other.character);
+		return exceptions == null || !exceptions.contains(other);
 	}
 
 	public boolean canConnect(BlockState other) {

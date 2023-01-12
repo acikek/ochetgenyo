@@ -2,8 +2,8 @@ package com.acikek.ochetgenyo.block.glyph;
 
 public class StopBlock extends GlyphBlock {
 
-	public StopBlock() {
-		super('.');
+	public StopBlock(String phoneme) {
+		super(phoneme);
 	}
 
 	@Override

@@ -19,6 +19,9 @@ public enum Connection implements StringIdentifiable {
 		name = name().toLowerCase();
 	}
 
+	/**
+	 * Gets the proper connection state for a block given how it should connect to its vertical neighbors.
+	 */
 	public static Connection getByNeighbors(boolean above, boolean below) {
 		if (above && below) {
 			return BOTH;

@@ -9,8 +9,8 @@ public class OrientableVowelBlock extends VowelBlock {
 
 	public static final EnumProperty<Orientation> ORIENTATION = EnumProperty.of("orientation", Orientation.class);
 
-	public OrientableVowelBlock(char character) {
-		super(character);
+	public OrientableVowelBlock(String phoneme) {
+		super(phoneme);
 		setDefaultState(getDefaultState().with(ORIENTATION, Orientation.RIGHT));
 	}
 

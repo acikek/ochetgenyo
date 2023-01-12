@@ -10,8 +10,8 @@ public class VowelBlock extends GlyphBlock {
 
 	public static final BooleanProperty ATTACHED = BooleanProperty.of("attached");
 
-	public VowelBlock(char character) {
-		super(character);
+	public VowelBlock(String phoneme) {
+		super(phoneme);
 		setDefaultState(getDefaultState().with(ATTACHED, false));
 	}
 
