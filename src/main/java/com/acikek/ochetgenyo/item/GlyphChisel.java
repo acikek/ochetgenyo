@@ -11,6 +11,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -18,16 +20,13 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class GlyphChisel extends Item {
 
-	public static final GlyphChisel INSTANCE = new GlyphChisel(new FabricItemSettings()
-			.group(Ochetgenyo.ITEM_GROUP)
-			.maxCount(1));
+	public static final GlyphChisel INSTANCE = new GlyphChisel(new FabricItemSettings().maxCount(1));
 
 	public static final Identifier CHISEL = Ochetgenyo.id("chisel");
 
@@ -74,8 +73,8 @@ public class GlyphChisel extends Item {
 	}
 
 	public static void register() {
-		Registry.register(Registry.ITEM, Ochetgenyo.id("glyph_chisel"), INSTANCE);
-		Registry.register(Registry.CUSTOM_STAT, CHISEL, CHISEL);
+		Registry.register(Registries.ITEM, Ochetgenyo.id("glyph_chisel"), INSTANCE);
+		Registry.register(Registries.CUSTOM_STAT, CHISEL, CHISEL);
 		Stats.CUSTOM.getOrCreateStat(CHISEL);
 	}
 }

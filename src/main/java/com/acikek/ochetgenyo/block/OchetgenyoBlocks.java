@@ -6,8 +6,9 @@ import com.acikek.ochetgenyo.block.glyph.GlyphBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +33,8 @@ public class OchetgenyoBlocks {
 
 	public static <T extends Block> void register(String id, T block) {
 		Identifier blockId = Ochetgenyo.id(id);
-		Registry.register(Registry.BLOCK, blockId, block);
-		Registry.register(Registry.ITEM, blockId, new BlockItem(block, new FabricItemSettings().group(Ochetgenyo.ITEM_GROUP)));
+		Registry.register(Registries.BLOCK, blockId, block);
+		Registry.register(Registries.ITEM, blockId, new BlockItem(block, new FabricItemSettings()));
 		if (block instanceof GlyphBlock glyphBlock) {
 			glyphBlocks.add(glyphBlock);
 		}
