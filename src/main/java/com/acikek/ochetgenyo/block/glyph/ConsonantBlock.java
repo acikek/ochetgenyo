@@ -24,10 +24,6 @@ public class ConsonantBlock extends GlyphBlock {
 		setDefaultState(getDefaultState().with(FORM, Connection.NONE));
 	}
 
-	public ConsonantBlock(String phoneme, Orientation vowelOrientation) {
-		this(phoneme, vowelOrientation, false, null);
-	}
-
 	@Override
 	public boolean isVowelConnectable() {
 		return true;

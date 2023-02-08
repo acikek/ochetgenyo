@@ -8,6 +8,6 @@ public class OchetgenyoClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		OchetgenyoAPI.registerClientGlyphBehavior(OchetgenyoBlocks.FACTORY.getGlyphs());
+		OchetgenyoAPI.registerClientGlyphBehavior(OchetgenyoBlocks.glyphBlocks);
 	}
 }
