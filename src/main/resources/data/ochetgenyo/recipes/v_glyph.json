@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "ochetgenyo:glyph_blocks"
+    "tag": "ochetgenyo:glyphs"
   },
   "result": "ochetgenyo:v_glyph"
 }
