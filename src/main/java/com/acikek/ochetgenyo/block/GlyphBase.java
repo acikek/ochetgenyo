@@ -114,7 +114,7 @@ public class GlyphBase extends HorizontalFacingBlock {
 	@Nullable
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
-		BlockState state = super.getPlacementState(ctx).with(FACING, ctx.getPlayerFacing().getOpposite());
+		BlockState state = super.getPlacementState(ctx).with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
 		return update(ctx.getWorld(), state, ctx.getBlockPos(), true);
 	}
 
