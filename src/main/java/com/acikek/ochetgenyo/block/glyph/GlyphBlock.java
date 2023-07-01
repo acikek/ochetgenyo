@@ -78,7 +78,7 @@ public abstract class GlyphBlock extends GlyphBase {
 		}
 		ItemStack handStack = player.getStackInHand(hand);
 		if (handStack.isEmpty() && player.isSneaking()) {
-			if (!world.isClient()) {
+			if (world.isClient()) {
 				String sentence = processSentence(gatherSentence(world, pos));
 				player.sendMessage(Text.literal("'" + sentence + "'").styled(style -> style.withItalic(true)), false);
 			}

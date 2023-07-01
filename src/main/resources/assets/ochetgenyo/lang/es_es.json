@@ -1,0 +1,17 @@
+{
+  "block.ochetgenyo.glyph_base": "Base de glifos",
+  "block.ochetgenyo.a_glyph": "Glifo 'A'",
+  "block.ochetgenyo.e_glyph": "Glifo 'E'",
+  "block.ochetgenyo.o_glyph": "Glifo 'O'",
+  "block.ochetgenyo.t_glyph": "Glifo 'T'",
+  "block.ochetgenyo.k_glyph": "Glifo 'K'",
+  "block.ochetgenyo.j_glyph": "Glifo 'J'",
+  "block.ochetgenyo.v_glyph": "Glifo 'V'",
+  "block.ochetgenyo.s_glyph": "Glifo 'S'",
+  "block.ochetgenyo.n_glyph": "Glifo 'N'",
+  "block.ochetgenyo.p_glyph": "Glifo 'P'",
+  "block.ochetgenyo.g_glyph": "Glifo 'G'",
+  "block.ochetgenyo.stop_glyph": "'Punto'",
+  "item.ochetgenyo.glyph_chisel": "Cincel de glifos",
+  "stat.ochetgenyo.chisel": "Glifos cincelados"
+}
